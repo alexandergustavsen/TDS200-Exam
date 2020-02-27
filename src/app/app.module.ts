@@ -19,13 +19,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBoGebmrmVDYh5KSwgiYFYL742D5iusCCw",
-  authDomain: "roombooking-247da.firebaseapp.com",
-  databaseURL: "https://roombooking-247da.firebaseio.com",
-  projectId: "roombooking-247da",
-  storageBucket: "roombooking-247da.appspot.com",
-  messagingSenderId: "308232330472",
-  appId: "1:308232330472:web:fea0493023c2e5b8fdbd5d"
+  apiKey: //INSERT APIKEY HERE,
+  authDomain: //INSERT AUTH DOMAIN HERE,
+  databaseURL: //INSERT DATABASE URL HERE,
+  projectId: //INSERT PROJECT ID HERE,
+  storageBucket: //INSERT STORAGE BUCKET HERE,
+  messagingSenderId: //INSERT MESSAGING SENDER ID HERE,
+  appId: //INSERT APP ID HERE
 };
 
 @NgModule({
