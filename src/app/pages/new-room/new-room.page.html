@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Add Room
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode="ios">
+    <img *ngIf="cameraPreview" src="{{'data:image/jpeg;base64,' + cameraPreview}}" style="max-height: 40vh" />
+    <ion-card-content fullscreen >
+      
+      <ion-card-subtitle class="ion-padding-horizontal">
+        Fill in room information
+      </ion-card-subtitle>
+      
+      <ion-item>
+        <ion-input [(ngModel)]="title" type="text" placeholder="Title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea [(ngModel)]="description" type="text" placeholder="Description"></ion-textarea>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input [(ngModel)]="name" type="text" placeholder="Room Name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="floor" type="number" placeholder="Floor"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="capacity" type="number" placeholder="Capacity"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="location" type="text" placeholder="Location"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" color="secondary" (click)="takePicture(0)">Camera</ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button expand="block" color="secondary" (click)="takePicture(1)">Gallery</ion-button>
+          </ion-col>
+
+          <ion-col>
+              <ion-button expand="block" color="tertiary" (click)="fetchGPSPosition()">Get Location</ion-button>
+            </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-button class="ion-padding" expand="block" (click)="postToFirebase()">Add Room</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

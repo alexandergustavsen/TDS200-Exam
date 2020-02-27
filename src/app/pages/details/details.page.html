@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Room</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <app-detail-feed-item [roomData]="room" [showAuthor]="true"></app-detail-feed-item>
+    
+    <!-- En if-statement som sjekker om den som opprettet rommet er den som er innlogget. -->
+    <ion-col *ngIf="room.owner === user; then showDeleteButton else showBookButtons"></ion-col>
+
+    <!-- En ny if-statement som sjekker om rommet er allerede er booket eller ikke. -->
+    <ng-template #showBookButtons>
+      <ion-col *ngIf="room.isAvailable === false; then showUnbookButton else showBookButton"></ion-col>
+      
+      <!-- Viser en "unbook"-knapp om brukeren ikke har opprettet rommet, men har booket det. -->
+      <ng-template #showUnbookButton>
+        <ion-button class="ion-padding-horizontal" expand="block" (click)="updateAvailability(room.id)">Unbook Room</ion-button>
+      </ng-template>
+      
+      <!-- Viser en "book"-knapp om brukeren ikke har opprettet rommet, og det ikke er booket fra før. -->
+      <ng-template #showBookButton>
+        <ion-button class="ion-padding-horizontal" expand="block" (click)="updateAvailability(room.id)">Book Room</ion-button>
+      </ng-template>
+    </ng-template>
+
+    <!-- Viser slette-knapp om brukeren som er innlogget er den som opprettet rommet. -->
+    <ng-template #showDeleteButton>
+      <ion-button class="ion-padding-horizontal" expand="block" color="danger" (click)="deleteFromFirebase(room.id)">Delete Room</ion-button>
+    </ng-template>
+
+    <ion-list class="ion-padding-top">
+      <ion-card mode="ios">
+        <ion-card-content fullscreen class="ion-padding" >
+          <ion-card-header>
+            <ion-card-subtitle class="ion-no-padding">Add Rating</ion-card-subtitle>
+          </ion-card-header>
+          
+          <ion-item lines="none">
+            <rating 
+              [(ngModel)]="ratingValue"
+              readonly="false"
+              size="small">
+            </rating>
+          </ion-item>
+          
+          <ion-item class="ion-padding-bottom">
+            <ion-input [(ngModel)]="comment" type="text" placeholder=" - Comment.."></ion-input>
+          </ion-item>
+          
+          <ion-button class="ion-padding-horizontal" size="small" (click)="postToFirebaseRating(room.id)">Add Rating</ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-row>
+        <ion-col *ngFor="let rating of ratings$ | async" lines="none">
+          <app-rating-feed-item [ratingData]="rating" [showAuthor]="false"></app-rating-feed-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-content>

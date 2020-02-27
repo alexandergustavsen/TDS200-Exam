@@ -1,0 +1,45 @@
+<ion-card mode="ios">
+  <img [src]="roomData.imageUrl" />
+  <ion-card-content>
+    <ion-list>
+      <ion-list-header class="ion-no-padding">
+        Room information
+      </ion-list-header>
+      
+      <ion-item class="ion-no-padding">
+        <ion-label>
+          <h3>Room Name</h3>
+          <p>{{roomData.name}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label>
+          <h3>Floor</h3>
+          <p>{{roomData.floor}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label>
+          <h3>Capacity</h3>
+          <p>{{roomData.capacity}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label>
+          <h3>Location</h3>
+          <p>{{roomData.location}}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label>
+          <h3>Contact</h3>
+          <p>{{roomData.owner}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,29 @@
+ion-content {
+  --background: url("/assets/images/office-bg.jpg") no-repeat fixed center;
+}
+
+#login-form {
+  margin-top: 70%;
+}
+
+ion-input {
+  --color: white;
+}
+
+ion-item { 
+  --color: rgb(185, 185, 185);
+}
+
+ion-button {
+  --background-activated: rgb(0, 0, 0, 0);
+  --background: rgb(0, 0, 0, 0);
+  --color-activated: rgb(255, 255, 255, 0.5);
+  --color: white;
+}
+
+ion-card-subtitle {
+  word-spacing: 10px;
+  text-align: center;
+  padding-top: 60px;
+  margin-bottom: -40px;
+}

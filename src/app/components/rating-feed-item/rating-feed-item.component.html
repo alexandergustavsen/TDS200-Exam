@@ -1,0 +1,21 @@
+<ion-card mode="ios">
+    <ion-card-content fullscreen class="ion-padding" >
+      <ion-list>
+        <ion-list-header>
+          {{epochToTimeAgo()}} | {{ratingData.user}}
+        </ion-list-header>
+
+        <ion-item lines="none">
+          <rating
+            [rate]="ratingData.starRating" 
+            readonly="true"
+            size="small">
+          </rating>
+        </ion-item>
+  
+        <ion-item lines="none">
+          <ion-text>- {{ratingData.comment}}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>

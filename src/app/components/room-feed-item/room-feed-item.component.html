@@ -1,0 +1,24 @@
+<ion-card mode="ios">
+  <img [src]="roomData.imageUrl" />
+  <ion-card-header>
+    <ion-card-subtitle>{{epochToTimeAgo()}}</ion-card-subtitle>
+    <ion-card-title>{{roomData.title}}</ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    {{roomData.description}}
+  </ion-card-content>
+
+  <ion-footer class="ion-padding">
+    <rating
+      [rate]="roomData.average" 
+      readonly="true"
+      size="small">
+    </rating>
+  </ion-footer>
+  <div class="ion-text-center ion-padding-bottom">
+    <ion-label>
+      ({{roomData.average.toFixed(1)}})
+    </ion-label>
+  </div>
+</ion-card>

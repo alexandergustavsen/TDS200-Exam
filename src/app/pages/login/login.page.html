@@ -1,0 +1,24 @@
+<ion-content>
+  <div id="login-form">
+    <ion-header>
+      <ion-card-subtitle color="light" class="ion-padding-horizontal">
+        Appointment™ Booking
+      </ion-card-subtitle>
+    </ion-header>
+    <ion-card>
+      <ion-card-content>
+        <ion-item color="transparent">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input [(ngModel)]="user.username"></ion-input>
+        </ion-item>
+      
+        <ion-item color="transparent">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-button class="ion-padding-horizontal" expand="block" (click)="loginUser()">Login</ion-button>
+    <ion-button class="ion-padding-horizontal" expand="block" (click)="registerUser()">Register</ion-button>
+  </div>
+</ion-content>

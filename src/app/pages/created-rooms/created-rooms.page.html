@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Created Rooms
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col *ngFor="let room of rooms$ | async" lines="none" (click)="navigateToDetailView(room)">
+    <app-room-feed-item [roomData]="room" [showAuthor]="false"></app-room-feed-item>
+  </ion-col>
+</ion-content>
